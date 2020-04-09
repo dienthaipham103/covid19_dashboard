@@ -1,8 +1,29 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { DefaultComponent } from './layers/default/default.component';
+import { MapComponent } from './layers/pages/map/map.component';
+import { ChartsComponent } from './layers/pages/charts/charts.component';
+import { StatisticComponent } from './layers/pages/statistic/statistic.component';
 
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: '',
+    component: DefaultComponent,
+    children: [{
+      path: '',
+      component: MapComponent
+    },
+    {
+      path: 'charts',
+      component: ChartsComponent
+    },
+    {
+      path: 'statistic',
+      component: StatisticComponent
+    }]
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
