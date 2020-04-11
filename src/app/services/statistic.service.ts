@@ -11,7 +11,7 @@ export class StatisticService {
   constructor(private http: HttpClient) { }
 
   
-  url : string = "http://localhost:5000/information/all";
+  url : string = "http://api.corona.ngothithanhtruc.com/api3";
   getData(): Observable<StatisticItem[]>{
     return this.http.get<StatisticItem[]>(this.url);
   }

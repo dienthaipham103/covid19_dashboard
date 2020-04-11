@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import * as CanvasJS from './../../../../canvasjs.min';
-import { CasesPieChartModel, ChartsService } from 'src/app/services/charts.service';
+import { Chart } from 'chart.js';
+import { ChartsService, Piechart_model } from 'src/app/services/charts.service';
 
 @Component({
   selector: 'app-piechart',
@@ -8,31 +8,41 @@ import { CasesPieChartModel, ChartsService } from 'src/app/services/charts.servi
   styleUrls: ['./piechart.component.scss']
 })
 export class PiechartComponent implements OnInit {
-  data: CasesPieChartModel[];
+  chart = [];
+  data: Piechart_model;
 
-  constructor(private chartsServices: ChartsService) { }
+  constructor(private chartsService: ChartsService) { }
 
   ngOnInit(): void {
-    this.chartsServices.getCasesPieChartData().subscribe(data=>{
+    this.chartsService.getPieChart_data().subscribe(data=>{
       this.data = data;
-
-      let chart = new CanvasJS.Chart("piechart", {
-        theme: "light2",
-        animationEnabled: true,
-        exportEnabled: true,
-        title:{
-          text: "10 countries with the most cases"
+      
+      this.chart = new Chart('canvas1', {
+        type: 'pie',
+        data: {
+          labels: this.data['label'],
+          datasets: [{
+            label: "Population (millions)",
+            backgroundColor: ["#F7EA7E", "#F6DDFB","#CBF56C","#DDFBFA","#E6D7EC",
+                              "#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9", "#c45850",
+                              "#EAD576", "#F2B8DD", "#CBC0C7", "#D5F08E", "#FCC36B", 
+                              "#BBEBDB", "#F58954", "#EDEF74", "#C8EF74", "#97C172",
+                              "#A0F1DE", "#A6D2D9", "#BDD7EA", "#D3CAEB", "#F0B7E8",
+                              "#EEECED", "#EFAC14", "#B2BA0A", "#337CAC", "#C3F1DD", "#8C8490"],
+            data: this.data['cases']
+          }]
         },
-        data: [{
-          type: "pie",
-          showInLegend: true,
-          toolTipContent: "<b>{name}</b>: ${y} (#percent%)",
-          indexLabel: "{name} - #percent%",
-          dataPoints: this.data
-        }]
-      });
-        
-      chart.render();
+        options: {
+          title: {
+            display: true,
+            text: 'Countries cases distribution (%)'
+          },
+          legend: {
+            display: true,
+            position:'top'
+          }
+        }
+    });
     })
 
   }

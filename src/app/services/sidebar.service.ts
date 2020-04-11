@@ -1,4 +1,14 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+export interface Info{
+  cases: number;
+  death_rate: number;
+  deaths: number;
+  recovered_rate: number;
+  recovered: number;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -6,7 +16,7 @@ import { Injectable } from '@angular/core';
 export class SidebarService {
   sideBarOpen = true;
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   sideBarToggler() {
     this.sideBarOpen = !this.sideBarOpen;
@@ -16,4 +26,10 @@ export class SidebarService {
   offSideBar(){
     this.sideBarOpen = false;
   }
+
+  api1_url : string = "http://api.corona.ngothithanhtruc.com/api1";
+  getInfo(): Observable<Info>{
+    return this.http.get<Info>(this.api1_url);
+  }
+
 }

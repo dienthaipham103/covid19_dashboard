@@ -4,6 +4,7 @@ import { DefaultComponent } from './layers/default/default.component';
 import { MapComponent } from './layers/pages/map/map.component';
 import { ChartsComponent } from './layers/pages/charts/charts.component';
 import { StatisticComponent } from './layers/pages/statistic/statistic.component';
+import { DetailComponent } from './layers/pages/detail/detail.component';
 
 
 const routes: Routes = [
@@ -21,6 +22,10 @@ const routes: Routes = [
     {
       path: 'statistic',
       component: StatisticComponent
+    },
+    {
+      path: 'detail/:country',
+      component: DetailComponent
     }]
   }
 ];

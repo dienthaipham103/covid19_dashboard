@@ -24,41 +24,30 @@
         </mdb-card>
 
         <mat-card fxFlex="25">
-            <h1 style="text-align: center; font-size: 1.5em;">Coronavirus Cases</h1>
+            <h1 style="text-align: center; font-size: 1.5em; color: gray;">Coronavirus Cases</h1>
             <p style="font-weight: bold; text-align: center; color: gray; font-size: 2em;">
-                1, 202, 435
+                {{cases}}
             </p>
         </mat-card>
         
         <mat-card fxFlex="25">
-            <h1 style="text-align: center; font-size: 1.5em;">Deaths</h1>
+            <h1 style="text-align: center; font-size: 1.5em; color: gray;">Deaths</h1>
             <p style="font-weight: bold; text-align: center; color: red; font-size: 2em;">
-                64, 729
+                {{deaths}}
                 <span>
                     <mat-icon color="primary">trending_up</mat-icon>
                 </span>
-                5.38 %
+                {{death_rate}} %
             </p>
-            <h1 style="text-align: center; font-size: 1.5em;">Recovered</h1>
+            <h1 style="text-align: center; font-size: 1.5em; color: gray;">Recovered</h1>
             <p style="font-weight: bold; text-align: center; color: rgb(111, 182, 6); font-size: 2em;">
-                246, 638
+                {{recovered}}
                 <span>
                     <mat-icon color="primary">trending_up</mat-icon>
                 </span>
-                20.51 %
+                {{recovered_rate}} %
             </p>
         </mat-card>
     </div>
-
-    
-
-    <!-- <mat-divider></mat-divider> -->
-
-    <!-- <h1 matSubheader>Pages</h1>
-
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/">Dashboard</a>
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/charts">Charts</a>
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/statistic">Statistic</a> -->
-
 
 </mat-nav-list>

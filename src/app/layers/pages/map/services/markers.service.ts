@@ -24,7 +24,7 @@ export class MarkersService {
   constructor(private http: HttpClient,
               private popupService: PopUpService) { }
 
-  countryUrl : string = "http://localhost:5000/countries/all";
+  countryUrl : string = "http://api.corona.ngothithanhtruc.com/api2";
   getCountryData(): Observable<Country[]>{
     return this.http.get<Country[]>(this.countryUrl);
   }

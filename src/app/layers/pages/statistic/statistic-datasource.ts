@@ -15,7 +15,8 @@ export interface StatisticItem {
   active: number;
   death_rate: number;
   recovered_rate: number;
-  flag: string
+  flag: string,
+  days: number
 }
 
 // TODO: replace this with real data from your application
@@ -99,6 +100,7 @@ export class StatisticDataSource extends DataSource<StatisticItem> {
         case 'active': return compare(+a.active, +b.active, !isAsc);
         case 'death_rate': return compare(+a.death_rate, +b.death_rate, !isAsc);
         case 'recovered_rate': return compare(+a.recovered_rate, +b.recovered_rate, !isAsc);
+        case 'days': return compare(+a.days, +b.days, !isAsc);
         default: return 0;
       }
     });

@@ -17,7 +17,7 @@ export class StatisticComponent implements AfterViewInit, OnInit {
   dataSource: StatisticDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['rank', 'flag', 'country', 'cases', 'deaths', 'recovered', 'active', 'death_rate', 'recovered_rate'];
+  displayedColumns = ['rank', 'flag', 'country', 'cases', 'deaths', 'recovered', 'active', 'death_rate', 'recovered_rate', 'days'];
 
   constructor(private statisticService: StatisticService) { }
 
@@ -29,5 +29,11 @@ export class StatisticComponent implements AfterViewInit, OnInit {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
     this.table.dataSource = this.dataSource;
+  }
+
+  numberWithCommas(x) {
+    var parts = x.toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parts.join(".");
   }
 }
