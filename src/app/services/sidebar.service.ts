@@ -27,7 +27,7 @@ export class SidebarService {
     this.sideBarOpen = false;
   }
 
-  api1_url : string = "http://api.corona.ngothithanhtruc.com/api1";
+  api1_url : string = "https://api.corona.ngothithanhtruc.com/api1";
   getInfo(): Observable<Info>{
     return this.http.get<Info>(this.api1_url);
   }

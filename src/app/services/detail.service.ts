@@ -52,37 +52,37 @@ export class DetailService {
 
   constructor(private http: HttpClient) { }
 
-  api1_detail : string = "http://api.corona.ngothithanhtruc.com/api1/detail?country=";
+  api1_detail : string = "https://api.corona.ngothithanhtruc.com/api1/detail?country=";
   getDetailInfo_data(country): Observable<DetailInfo_model>{
     return this.http.get<DetailInfo_model>(this.api1_detail + country);
   }
 
-  api4_detail : string = "http://api.corona.ngothithanhtruc.com/api4/detail?country=";
+  api4_detail : string = "https://api.corona.ngothithanhtruc.com/api4/detail?country=";
   getDetailLinechart00_data(country): Observable<DetailLinechart00_model>{
     return this.http.get<DetailLinechart00_model>(this.api4_detail + country);
   }
 
-  api11_detail : string = "http://api.corona.ngothithanhtruc.com/api11/detail?country=";
+  api11_detail : string = "https://api.corona.ngothithanhtruc.com/api11/detail?country=";
   getDetailLinechart01_data(country): Observable<DetailLinechart01_model>{
     return this.http.get<DetailLinechart01_model>(this.api11_detail + country);
   }
 
-  api10_detail : string = "http://api.corona.ngothithanhtruc.com/api10/detail?country=";
+  api10_detail : string = "https://api.corona.ngothithanhtruc.com/api10/detail?country=";
   getDetailLinechart02_data(country): Observable<DetailLinechart02_model>{
     return this.http.get<DetailLinechart02_model>(this.api10_detail + country);
   }
 
-  api7_detail : string = "http://api.corona.ngothithanhtruc.com/api7/detail?country=";
+  api7_detail : string = "https://api.corona.ngothithanhtruc.com/api7/detail?country=";
   getDetailBarchart01_data(country): Observable<DetailBarchart01_model>{
     return this.http.get<DetailBarchart01_model>(this.api7_detail + country);
   }
 
-  api8_detail : string = "http://api.corona.ngothithanhtruc.com/api8/detail?country=";
+  api8_detail : string = "https://api.corona.ngothithanhtruc.com/api8/detail?country=";
   getDetailBarchart02_data(country): Observable<DetailBarchart02_model>{
     return this.http.get<DetailBarchart02_model>(this.api8_detail + country);
   }
 
-  api9_detail : string = "http://api.corona.ngothithanhtruc.com/api9/detail?country=";
+  api9_detail : string = "https://api.corona.ngothithanhtruc.com/api9/detail?country=";
   getDetailBarchart03_data(country): Observable<DetailBarchart03_model>{
     return this.http.get<DetailBarchart03_model>(this.api9_detail + country);
   }
